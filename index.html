@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atlanza eduhub</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;700&display=swap");
+
+:root {
+  --clr-primary: #49aff3;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #111;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header,
+.section {
+  width: 100%;
+  padding: 40px 0;
+  overflow: hidden;
+}
+
+.header::after,
+.header::before,
+.section::after,
+.section::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  bottom: 0;
+}
+
+.header::after {
+  left: -200px;
+}
+
+.header::before {
+  right: -200px;
+}
+
+.mb {
+  margin-bottom: 30px;
+}
+
+.mt {
+  margin-top: 20px;
+}
+
+.section {
+  background: #1d1f1e;
+  position: relative;
+  padding: 80px 0;
+}
+ 
+.section::after {
+  left: -200px;
+}
+
+.section::before {
+  width: 600px;
+  right: -200px;
+}
+
+.section:nth-child(even) {
+  background: #000000;
+}
+
+.section:nth-child(even)::after,
+.section:nth-child(even)::before {
+  display: none;
+}
+
+.primary {
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.secondary {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.tertiary {
+  font-size: 15px;
+}
+
+.menu {
+  width: 100%;
+  background: linear-gradient(to right, #000000 70%, #111);
+  padding: 12px 0;
+}
+
+.menu .container {
+  justify-content: space-between;
+}
+
+.mobile-btn {
+  display: none;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.logo img {
+  width: 80px;
+  height: auto;
+}
+
+.nav {
+  list-style: none;
+}
+
+.nav-item {
+  display: inline-block;
+  margin-right: 30px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-item:hover a {
+  color: #49aff3;
+  transition: 0.3s linear;
+}
+
+.nav-item:last-of-type {
+  margin-right: 0;
+}
+
+.btn {
+  padding: 10px 28px;
+  background: var(--clr-primary);
+  border-radius: 40px;
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #fff;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: #0a8be0;
+  transition: 0.3s linear;
+}
+
+.btn-2 {
+  font-size: 35px;
+  text-decoration: none;
+  color: #ccc;
+  transition: 0.3s linear;
+}
+
+.btn-2:hover {
+  color: #29a396;
+}
+
+.text {
+  width: 60%;
+}
+
+.visual {
+  width: 40%;
+}
+
+.visual img {
+  width: 100%;
+}
+
+.header h1 {
+  font-size: 70px;
+  font-weight: 700;
+}
+
+.header h1 span {
+  color: var(--clr-primary);
+}
+
+.section:nth-child(even) .visual {
+  margin-right: 30px;
+}
+
+
+#trainer {
+  text-align: center;
+}
+
+.trainer img {
+  border-top-left-radius: 80px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 80px;
+  border-bottom-left-radius: 20px;
+  margin-bottom: 10px;
+  outline: 2px solid #fff;
+  padding: 14px;
+}
+
+.trainer .mb {
+  margin-bottom: 10px;
+}
+
+#testimonial .visual img {
+  width: 90%;
+  display: block;
+  margin-left: auto;
+}
+
+.client {
+  background: #fff;
+  color: #000000;
+  padding: 20px 10px;
+  margin-right: 20px;
+  text-align: center;
+  border-radius: 20px;
+  position: relative;
+  margin-top: 20px;
+}
+
+.client img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  top: -40px;
+  left: calc(50% - 40px);
+}
+
+.client h2 {
+  margin: 20px 0 10px 0;
+}
+#discount {
+  padding: 40px 0;
+}
+.footer {
+  padding: 30px 0;
+  border-top: 1px solid #fff;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .mobile-btn {
+    display: block;
+    font-size: 35px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 12px;
+  }
+
+  .menu.active .nav-item {
+    display: block;
+    margin: 30px 0;
+  }
+
+  .nav,
+  .menu .btn {
+    display: none;
+  }
+
+  .menu.active .nav,
+  .menu.active .btn {
+    display: block;
+  }
+
+  .menu.active {
+    padding: 30px 0;
+    width: 100%;
+    transition: all 0.8s ease;
+  }
+
+  .text,
+  .visual {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .text h1 {
+    font-size: 45px;
+  }
+
+  .primary {
+    font-size: 28px;
+  }
+
+  .secondary {
+    font-size: 22px;
+  }
+
+  .tertiary {
+    font-size: 14px;
+  }
+
+  .trainer {
+    margin-bottom: 20px;
+  }
+
+  .client {
+    margin-bottom: 50px;
+  }
+
+  #discount .visual img {
+    width: 70%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 530px) {
+  .header::after,
+  .header::before,
+  .section::after,
+  .section::before {
+    display: none;
+  }
+
+  .primary {
+    font-size: 25px;
+  }
+
+  .secondary {
+    font-size: 20px;
+  }
+
+  .tertiary {
+    font-size: 12px;
+  }
+
+  .text h1 {
+    font-size: 34px;
+  }
+
+  .btn,
+  .btn-2 {
+    font-size: 16px;
+  }
+}
+.youtube {
+  position: fixed;
+  bottom: 40px;
+  right: 70px;
+  text-decoration: none;
+  padding: 8px 12px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 6px;
+  box-shadow: 0 2px 2px 3px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.youtube p {
+  font-size: 22px;
+}
+
+  </style>
+  <body>
+    <div class="menu">
+      <div class="container flex">
+        <div class="mobile-btn">
+          <ion-icon name="grid"></ion-icon>
+        </div>
+        <div class="logo">
+          <img
+            src="./image/logott-removebg-preview.png"
+            alt=""
+          />
+        </div>
+
+        <ul class="nav">
+          <li class="nav-item"><a href="#">Home</a></li>
+        </ul>
+
+        <a href="https://forms.gle/nHh4J4zEQADpeUWt6" class="btn">Register</a>
+      </div>
+    </div>
+    <header class="header">
+      <div class="container flex">
+        <div class="text">
+          <h1 class="mb">
+            ATLANZA The <br />
+            <span>Internship</span> Company.
+          </h1>
+
+          <p class="mb">
+          </p>
+
+          <a href="https://forms.gle/nHh4J4zEQADpeUWt6" class="btn mt">Get Started Now</a>
+        </div>
+
+        <div class="visual">
+          <img
+            src="./image/—Pngtree—artificial intelligence cloud technology_7056093.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </header>
+    <div class="section" id="why-us">
+      <div class="container flex">
+        <div class="text">
+          <h2 class="primary mb">About us</h2>
+          <h2 class="secondary mb">Atlanza The Internship Company</h2>
+          <H3 class="tertiary">
+            Atlanza, founded and led by KAMESH G, offers comprehensive internship programs for students in both online and offline formats. The offline internships entail a structured program 
+            that includes a basic eligibility test. Atlanza's commitment to providing hands-on experience and learning opportunities is evident in its tailored offline internships, ensuring students meet certain criteria before participation.
+             Kamesh's leadership fosters an environment focused on enriching educational experiences, allowing students to thrive and develop practical skills within their chosen field.
+          </H3>
+
+        </div>
+        <div class="visual">
+          <img
+            src="./image/about.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <div class="section" id="explore">
+      <div class="container flex">
+        <div class="visual">
+          <img
+            src="./image/python.png"
+            alt=""
+          />
+        </div>
+       
+        <div class="text">
+          <h2 class="primary mb">
+            PYTHON <br />
+Internship Program
+          </h2>
+          <p class="tertiary mb">
+            Python's simplicity and readability make it an ideal language for beginners to learn programming concepts efficiently.
+            Its extensive libraries and frameworks empower developers to swiftly prototype and deploy applications across various domains, from web development to data science.
+            Python's widespread adoption in the industry ensures ample job opportunities and career growth for proficient developers.
+          </p>
+          <a href="https://forms.gle/nHh4J4zEQADpeUWt6" class="btn mt">Apply Now</a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="section" id="explore">
+      <div class="container flex">
+        <div class="visual">
+          <img
+            src="./image/java.png"
+            alt=""
+          />
+        </div>
+       
+        <div class="text">
+          <h2 class="primary mb">
+            JAVA <br />
+            Internship Program
+          </h2>
+          <p class="tertiary mb">
+
+            Learning Java offers versatile skills sought after by numerous industries, fostering career opportunities in software development, web development, and mobile app development. 
+            Its robustness and platform independence make it ideal for building scalable, secure,
+             and high-performance applications. Moreover, Java's extensive community support and vast ecosystem provide abundant resources for continuous learning and growth.
+          </p>
+          <a href="https://forms.gle/nHh4J4zEQADpeUWt6" class="btn mt">Apply Now</a>
+        </div>
+        
+      </div>
+    </div> <div class="section" id="explore">
+      <div class="container flex">
+        <div class="visual">
+          <img
+            src="./image/web.png"
+            alt=""
+          />
+        </div>
+       
+        <div class="text">
+          <h2 class="primary mb">
+            WEB DEVELOPMENT <br />
+            Internship Program
+          </h2>
+          <p class="tertiary mb">
+
+            Learning web development offers opportunities for creativity, employability, and autonomy in creating digital solutions. 
+            It enables you to build websites and applications, tap into a growing job market, and continuously expand your skill set within a dynamic industry. Moreover,
+             it fosters problem-solving abilities and opens doors to freelance opportunities, allowing for flexibility and potential financial independence.
+          </p>
+          <a href="https://forms.gle/nHh4J4zEQADpeUWt6" class="btn mt">Apply  Now</a>
+        </div>
+        
+      </div>
+    </div> <div class="section" id="explore">
+      <div class="container flex">
+        <div class="visual">
+          <img
+            src="./image/datascience.png"
+            alt=""
+          />
+        </div>
+       
+        <div class="text">
+          <h2 class="primary mb">
+             Machine Learning<br />
+            Internship Program
+          </h2>
+          <p class="tertiary mb">
+            Learning Machine Learning offers the ability to analyze vast amounts of data to extract actionable insights, empowering informed decision-making.
+             It opens doors to lucrative career opportunities in various industries, where data-driven strategies are becoming increasingly essential.
+             Mastering Machine Learning enhances critical thinking, problem-solving, and programming skills, fostering adaptability in the rapidly evolving technological landscape.
+          </p>
+          <a href="https://forms.gle/nHh4J4zEQADpeUWt6" class="btn mt">Apply Now</a>
+        </div>
+        
+      </div>
+    </div> <div class="section" id="explore">
+      <div class="container flex">
+ 
+      </div>
+    <div class="section" id="discount">
+      <div class="container flex">
+        <div class="visual">
+          <img
+            src="./image/contact.png"
+            alt=""
+          />
+        </div>
+        <div class="text">
+          <h2 class="primary mb">
+            Mail Id               <link>:atlanzaeduhub@gmail.com</link><br>
+          <link> </link><br>
+          <a href="https://chat.whatsapp.com/Fe5rADnZJ7ML1XAT1jYAAZ">join whatsapp group</a>
+          </h2>
+          <p class="tertiary mb">
+          </p>
+          <a href="https://forms.gle/nHh4J4zEQADpeUWt6" class="btn bt">Contact NOW</a>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container flex">
+        <p class="tertiary">
+          &copy; 2024 All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"
+    ></script>
+    <script src="js/script.js">
+document.querySelector(".mobile-btn").addEventListener("click", function () {
+  document.querySelector(".menu").classList.toggle("active");
+});
+    </script>
+  </body>
+</html>
